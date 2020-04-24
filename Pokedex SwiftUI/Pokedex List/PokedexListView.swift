@@ -7,16 +7,41 @@
 //
 
 import SwiftUI
+import Astral
 
 struct PokedexListView: View {
     @State var pokemons: [PokemonData] = PokemonsCSVConverter().decodedPokemons
+    @State var isLoading: Bool = false
+    private let service: PokedexListService = PokedexListService()
     var body: some View {
-        List(self.pokemons) { pokemonData in
-            Button(action: {
-                print(pokemonData.name)
-            }) {
-                PokemonCell(viewModel: PokemonDataViewModel(pokemonData: pokemonData))
+        LoadingView(isShowing: .constant(self.isLoading)) {
+            NavigationView {
+                List(self.pokemons) { data in
+                    Button(action: {
+                        self.isLoading = true
+                        self.getDetails(pokemonData: data)
+                    }) {
+                        PokemonCell(viewModel: PokemonDataViewModel(pokemonData: data))
+                    }
+                }
+                .navigationBarTitle(Text("Pokemons"))
             }
         }
+    }
+
+    private func getDetails(pokemonData: PokemonData) {
+        self.service.getDetailData(with: pokemonData)
+            .onSuccess { (details: DetailModels) -> Void in
+                print(details.species.text)
+                NavigationLink(destination: PokemonDetailsView(details: details)) {
+                    Text("Do Something")
+                }
+            }
+            .onFailure { (error: NetworkingError) -> Void in
+                print(error.localizedDescription)
+            }
+            .onComplete { (_) -> Void in
+                self.isLoading = false
+            }
     }
 }
