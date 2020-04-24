@@ -7,7 +7,6 @@ target 'Pokedex SwiftUI' do
 
   # Pods for Pokedex SwiftUI
   pod 'Kio'
-  pod 'SnapKit'
   pod 'Astral'
   pod 'BFAstral'
 end
