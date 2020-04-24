@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		624215E3653E668D7459BD8E /* Pods_Pokedex_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0554C5CAC9F93EAFB2123DE4 /* Pods_Pokedex_SwiftUI.framework */; };
 		8EDC44CD2452C7EC00CAE566 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC44CC2452C7EC00CAE566 /* AppDelegate.swift */; };
 		8EDC44CF2452C7EC00CAE566 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC44CE2452C7EC00CAE566 /* SceneDelegate.swift */; };
 		8EDC44D12452C7EC00CAE566 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC44D02452C7EC00CAE566 /* ContentView.swift */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0554C5CAC9F93EAFB2123DE4 /* Pods_Pokedex_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pokedex_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1ABAE1B27DC60FFC70656625 /* Pods-Pokedex SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokedex SwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-Pokedex SwiftUI/Pods-Pokedex SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
+		6EB67D005280A6B0A8F1A814 /* Pods-Pokedex SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokedex SwiftUI.release.xcconfig"; path = "Target Support Files/Pods-Pokedex SwiftUI/Pods-Pokedex SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
 		8EDC44C92452C7EC00CAE566 /* Pokedex SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pokedex SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EDC44CC2452C7EC00CAE566 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EDC44CE2452C7EC00CAE566 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				624215E3653E668D7459BD8E /* Pods_Pokedex_SwiftUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		649E02C47D6EFE62968284F8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0554C5CAC9F93EAFB2123DE4 /* Pods_Pokedex_SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8EDC44C02452C7EC00CAE566 = {
 			isa = PBXGroup;
 			children = (
 				8EDC44CB2452C7EC00CAE566 /* Pokedex SwiftUI */,
 				8EDC44CA2452C7EC00CAE566 /* Products */,
+				B71C2213049E976D2856F081 /* Pods */,
+				649E02C47D6EFE62968284F8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,13 +71,9 @@
 		8EDC44CB2452C7EC00CAE566 /* Pokedex SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				8EDC44CC2452C7EC00CAE566 /* AppDelegate.swift */,
-				8EDC44CE2452C7EC00CAE566 /* SceneDelegate.swift */,
+				8EDC44E12452C80A00CAE566 /* Supporting Files */,
+				8EDC44E02452C80600CAE566 /* App Controllers */,
 				8EDC44D02452C7EC00CAE566 /* ContentView.swift */,
-				8EDC44D22452C7ED00CAE566 /* Assets.xcassets */,
-				8EDC44D72452C7ED00CAE566 /* LaunchScreen.storyboard */,
-				8EDC44DA2452C7EE00CAE566 /* Info.plist */,
-				8EDC44D42452C7ED00CAE566 /* Preview Content */,
 			);
 			path = "Pokedex SwiftUI";
 			sourceTree = "<group>";
@@ -75,6 +86,36 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		8EDC44E02452C80600CAE566 /* App Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8EDC44CC2452C7EC00CAE566 /* AppDelegate.swift */,
+				8EDC44CE2452C7EC00CAE566 /* SceneDelegate.swift */,
+			);
+			path = "App Controllers";
+			sourceTree = "<group>";
+		};
+		8EDC44E12452C80A00CAE566 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8EDC44D22452C7ED00CAE566 /* Assets.xcassets */,
+				8EDC44D72452C7ED00CAE566 /* LaunchScreen.storyboard */,
+				8EDC44DA2452C7EE00CAE566 /* Info.plist */,
+				8EDC44D42452C7ED00CAE566 /* Preview Content */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B71C2213049E976D2856F081 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1ABAE1B27DC60FFC70656625 /* Pods-Pokedex SwiftUI.debug.xcconfig */,
+				6EB67D005280A6B0A8F1A814 /* Pods-Pokedex SwiftUI.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -82,9 +123,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8EDC44DD2452C7EE00CAE566 /* Build configuration list for PBXNativeTarget "Pokedex SwiftUI" */;
 			buildPhases = (
+				FAF014C05A9D22BF486E7394 /* [CP] Check Pods Manifest.lock */,
 				8EDC44C52452C7EC00CAE566 /* Sources */,
 				8EDC44C62452C7EC00CAE566 /* Frameworks */,
 				8EDC44C72452C7EC00CAE566 /* Resources */,
+				D75FCF872FA8F3B75A578920 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -140,6 +183,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D75FCF872FA8F3B75A578920 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pokedex SwiftUI/Pods-Pokedex SwiftUI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pokedex SwiftUI/Pods-Pokedex SwiftUI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pokedex SwiftUI/Pods-Pokedex SwiftUI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FAF014C05A9D22BF486E7394 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pokedex SwiftUI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8EDC44C52452C7EC00CAE566 /* Sources */ = {
@@ -282,13 +367,14 @@
 		};
 		8EDC44DE2452C7EE00CAE566 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1ABAE1B27DC60FFC70656625 /* Pods-Pokedex SwiftUI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Pokedex SwiftUI/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Pokedex SwiftUI/Supporting Files/Preview Content\"";
 				DEVELOPMENT_TEAM = K2FYAR324D;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Pokedex SwiftUI/Info.plist";
+				INFOPLIST_FILE = "Pokedex SwiftUI/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,13 +388,14 @@
 		};
 		8EDC44DF2452C7EE00CAE566 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EB67D005280A6B0A8F1A814 /* Pods-Pokedex SwiftUI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Pokedex SwiftUI/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Pokedex SwiftUI/Supporting Files/Preview Content\"";
 				DEVELOPMENT_TEAM = K2FYAR324D;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Pokedex SwiftUI/Info.plist";
+				INFOPLIST_FILE = "Pokedex SwiftUI/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
