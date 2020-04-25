@@ -10,12 +10,15 @@ import SwiftUI
 
 struct PokemonCell: View {
 
+    // MARK: Initializer
     public init(viewModel: PokemonDataViewModel) {
         self.viewModel = viewModel
     }
 
+    // MARK: Stored Properties
     private let viewModel: PokemonDataViewModel
 
+    // MARK: Configured Views
     var body: some View {
         HStack {
             self.viewModel.image

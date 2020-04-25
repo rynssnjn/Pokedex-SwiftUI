@@ -11,25 +11,23 @@ import Astral
 
 struct PokedexListView: View {
 
+    // MARK: Initializers
     public init(pokemons: [PokemonData]) {
         self.pokemons = pokemons
     }
 
-    @State var isLoading: Bool = false
-
-    private let service: PokemonDetailService = PokemonDetailService()
+    // MARK: Stored Properties
     private let pokemons: [PokemonData]
-    
+
+    // MARK: Configured View
     var body: some View {
-        LoadingView(isShowing: .constant(self.isLoading)) {
-            NavigationView {
-                List(self.pokemons) { pokemon in
-                    NavigationLink(destination: PokemonDetailsView(pokemon: pokemon)) {
-                        PokemonCell(viewModel: PokemonDataViewModel(pokemonData: pokemon))
-                    }
+        NavigationView {
+            List(self.pokemons) { pokemon in
+                NavigationLink(destination: PokemonDetailsView(pokemon: pokemon)) {
+                    PokemonCell(viewModel: PokemonDataViewModel(pokemonData: pokemon))
                 }
-                .navigationBarTitle(Text("Pokemons"))
             }
+            .navigationBarTitle(Text("Pokemons"))
         }
     }
 }

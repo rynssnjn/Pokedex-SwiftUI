@@ -12,12 +12,15 @@ import os
 
 struct PokemonDetailsView: View {
 
-    private let pokemon: PokemonData
-
+    // MARK: Initializers
     public init(pokemon: PokemonData) {
         self.pokemon = pokemon
     }
 
+    // MARK: Stored Properties
+    private let pokemon: PokemonData
+
+    // MARK: Configured View
     var body: some View {
         VStack {
             Text(self.pokemon.description)
