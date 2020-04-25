@@ -7,20 +7,20 @@
 //
 
 import SwiftUI
+import Astral
+import os
 
 struct PokemonDetailsView: View {
 
-    private let details: DetailModels
+    private let pokemon: PokemonData
 
-    public init(details: DetailModels) {
-        self.details = details
+    public init(pokemon: PokemonData) {
+        self.pokemon = pokemon
     }
 
     var body: some View {
         VStack {
-            Text(self.details.pokemon.name)
-            Text("\(self.details.pokemon.stats.specialAttack)")
-            Text(self.details.species.text)
+            Text(self.pokemon.description)
         }
     }
 }

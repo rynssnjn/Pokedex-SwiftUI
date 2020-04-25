@@ -6,7 +6,7 @@
 //  Copyright © 2019 Rael San Juan. All rights reserved.
 //
 
-public struct DetailModels {
+public struct DetailModel {
     
     // MARK: Stored Properties
     public let pokemon: Pokemon

@@ -1,5 +1,5 @@
 //
-//  PokedexListService.swift
+//  PokemonDetailService.swift
 //  Pokedex SwiftUI
 //
 //  Created by Rael San Juan on 4/24/20.
@@ -11,7 +11,7 @@ import Astral
 import BrightFutures
 import BFAstral
 
-public struct PokedexListService {
+public struct PokemonDetailService {
 
     private let decoder: JSONDecoder = JSONDecoder()
 
@@ -68,15 +68,15 @@ public struct PokedexListService {
         }
     }
 
-    public func getDetailData(with icon: PokemonData) -> Future<DetailModels, NetworkingError> {
+    public func getDetailData(with icon: PokemonData) -> Future<DetailModel, NetworkingError> {
         return self.getPokemonData(with: icon)
             .zip(self.getSpeciesData(with: icon))
-            .flatMap(NetworkQueue.context) { (pokemon: Pokemon, species: Species) -> Future<DetailModels, NetworkingError> in
+            .flatMap(NetworkQueue.context) { (pokemon: Pokemon, species: Species) -> Future<DetailModel, NetworkingError> in
 
                 return self.getEvolutionData(with: species)
-                    .map(NetworkQueue.context) { (evolution: Evolution) -> DetailModels in
+                    .map(NetworkQueue.context) { (evolution: Evolution) -> DetailModel in
 
-                        return DetailModels(
+                        return DetailModel(
                             pokemon: pokemon,
                             species: species,
                             evolution: evolution
