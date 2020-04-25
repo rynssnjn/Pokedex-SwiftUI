@@ -47,6 +47,7 @@
 		8EDC44D32452C7ED00CAE566 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EDC44D22452C7ED00CAE566 /* Assets.xcassets */; };
 		8EDC44D62452C7ED00CAE566 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EDC44D52452C7ED00CAE566 /* Preview Assets.xcassets */; };
 		8EDC44D92452C7ED00CAE566 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EDC44D72452C7ED00CAE566 /* LaunchScreen.storyboard */; };
+		8EF68A9024547E6100BAE738 /* PokemonProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF68A8F24547E6100BAE738 /* PokemonProfile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		8EDC44D52452C7ED00CAE566 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8EDC44D82452C7ED00CAE566 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8EDC44DA2452C7EE00CAE566 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8EF68A8F24547E6100BAE738 /* PokemonProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonProfile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 		8E53B26E245458B8000DD7CA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8EF68A8F24547E6100BAE738 /* PokemonProfile.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				8ECEB8112452DF8F00896EB3 /* LoadingView.swift in Sources */,
 				8E1F91AA2452CEAC00BF4117 /* SequenceExtensions.swift in Sources */,
 				8E1F91B22452CF6200BF4117 /* PokemonCell.swift in Sources */,
+				8EF68A9024547E6100BAE738 /* PokemonProfile.swift in Sources */,
 				8ECEB81B2452E19800896EB3 /* SpeciesRequest.swift in Sources */,
 				8E1F91AE2452CF0B00BF4117 /* PokemonDataViewModel.swift in Sources */,
 				8E1F91992452CC0200BF4117 /* CSVError.swift in Sources */,

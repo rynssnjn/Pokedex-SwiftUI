@@ -19,12 +19,60 @@ struct PokemonDetailsView: View {
 
     // MARK: Stored Properties
     private let pokemon: PokemonData
+    @State public var isLoading = false
+    @State private var selectedIndex = 0
+    @ObservedObject private var viewModel = DetailViewModel()
 
     // MARK: Configured View
     var body: some View {
-        VStack {
-            Text(self.pokemon.description)
+        LoadingView(isShowing: .constant(isLoading)) {
+            VStack {
+                if self.viewModel.details == nil {
+                    EmptyView()
+                } else {
+                    Picker("PokemonDetails", selection: self.$selectedIndex) {
+                        Text("Details").tag(0)
+                        Text("Stats").tag(1)
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    .frame(width: 200.0, height: 50.0, alignment: Alignment.center)
+
+                    if self.selectedIndex == 0 {
+                        PokemonProfile(details: self.viewModel.details!)
+                    } else {
+                        Text(self.viewModel.details!.species.evolutionURL.absoluteString)
+                    }
+
+                }
+            }
         }
+        .onAppear {
+            self.isLoading = true
+            self.viewModel.fetchDetails(pokemon: self.pokemon) {
+                self.isLoading = false
+            }
+        }
+        .navigationBarTitle(Text("Current Name"), displayMode: .inline)
     }
 }
 
+
+private class DetailViewModel: ObservableObject {
+
+    private let service: PokemonDetailService = PokemonDetailService()
+
+    @Published public var details: DetailModel? = nil
+
+    public func fetchDetails(pokemon: PokemonData, onComplete: @escaping () -> Void) {
+        self.service.getDetailData(with: pokemon)
+            .onSuccess { (details: DetailModel) -> Void in
+                self.details = details
+            }
+            .onFailure { (error: NetworkingError) -> Void in
+                os_log("%s", error.localizedDescription)
+            }
+            .onComplete { (_) -> Void in
+                onComplete()
+            }
+    }
+}
