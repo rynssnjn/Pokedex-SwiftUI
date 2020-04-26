@@ -20,7 +20,6 @@ struct PokemonDetailsView: View {
     // MARK: Stored Properties
     private let pokemon: PokemonData
     @State public var isLoading = false
-    @State private var selectedIndex = 0
     @ObservedObject private var viewModel = DetailViewModel()
 
     // MARK: Configured View
@@ -30,19 +29,7 @@ struct PokemonDetailsView: View {
                 if self.viewModel.details == nil {
                     EmptyView()
                 } else {
-                    Picker("PokemonDetails", selection: self.$selectedIndex) {
-                        Text("Details").tag(0)
-                        Text("Stats").tag(1)
-                    }
-                    .pickerStyle(SegmentedPickerStyle())
-                    .frame(width: 200.0, height: 50.0, alignment: Alignment.center)
-
-                    if self.selectedIndex == 0 {
-                        PokemonProfile(details: self.viewModel.details!)
-                    } else {
-                        Text(self.viewModel.details!.species.evolutionURL.absoluteString)
-                    }
-
+                    SegmentedChildView(viewModel: self.viewModel.details!)
                 }
             }
         }
@@ -52,7 +39,7 @@ struct PokemonDetailsView: View {
                 self.isLoading = false
             }
         }
-        .navigationBarTitle(Text("Current Name"), displayMode: .inline)
+        .navigationBarTitle(Text(self.pokemon.name.capitalized), displayMode: .inline)
     }
 }
 
