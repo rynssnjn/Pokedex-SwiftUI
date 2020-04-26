@@ -1,5 +1,5 @@
 //
-//  PokemonProfile.swift
+//  ProfileHeader.swift
 //  Pokedex SwiftUI
 //
 //  Created by Rael San Juan on 4/25/20.
@@ -8,26 +8,23 @@
 
 import SwiftUI
 
-struct PokemonProfile: View {
+struct ProfileHeader: View {
 
     // MARK: Initializer
-    public init(details: DetailModel) {
-        self.details = details
-        self.gradientBackground = Gradient(colors: [
-            Color(PokemonType(rawValue: self.details.pokemon.types.primaryType)!.color),
-            Color.white
-        ])
+    public init(viewModel: ProfileViewModel) {
+        self.viewModel = viewModel
     }
 
-    private let details: DetailModel
-    private let gradientBackground: Gradient
+    // MARK: Stored Properties
+    private let viewModel: ProfileViewModel
 
+    // MARK: Configured View
     var body: some View {
         VStack {
             HStack {
                 Spacer()
                 VStack {
-                    Image("\(self.details.pokemon.id)")
+                    self.viewModel.image
                         .resizable()
                         .clipShape(Circle())
                         .shadow(radius: 10)
@@ -36,7 +33,7 @@ struct PokemonProfile: View {
                         .overlay(Circle().stroke(Color.white, lineWidth: 2))
                         .padding(.top, 20.0)
                         .padding(.bottom, 20.0)
-                    Text(self.details.pokemon.name.uppercased())
+                    Text(self.viewModel.name)
                         .font(.system(size: 20.0, weight: .bold))
                 }
                 Spacer()
@@ -44,7 +41,7 @@ struct PokemonProfile: View {
             Spacer()
         }
         .background(LinearGradient(
-            gradient: self.gradientBackground,
+            gradient: self.viewModel.gradient,
             startPoint: UnitPoint.top,
             endPoint: UnitPoint.bottom
         ))
