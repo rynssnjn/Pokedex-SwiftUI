@@ -7,16 +7,27 @@
 //
 
 import SwiftUI
+import Astral
 
 struct PokedexListView: View {
-    @State var pokemons: [PokemonData] = PokemonsCSVConverter().decodedPokemons
+
+    // MARK: Initializers
+    public init(pokemons: [PokemonData]) {
+        self.pokemons = pokemons
+    }
+
+    // MARK: Stored Properties
+    private let pokemons: [PokemonData]
+
+    // MARK: Configured View
     var body: some View {
-        List(self.pokemons) { pokemonData in
-            Button(action: {
-                print(pokemonData.name)
-            }) {
-                PokemonCell(viewModel: PokemonDataViewModel(pokemonData: pokemonData))
+        NavigationView {
+            List(self.pokemons) { pokemon in
+                NavigationLink(destination: PokemonDetailsView(pokemon: pokemon)) {
+                    PokemonCell(viewModel: PokemonDataViewModel(pokemonData: pokemon))
+                }
             }
+            .navigationBarTitle(Text("Pokemons"))
         }
     }
 }

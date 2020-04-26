@@ -1,5 +1,5 @@
 //
-//  PokedexListViewModel.swift
+//  PokemonDataViewModel.swift
 //  Pokedex SwiftUI
 //
 //  Created by Rael San Juan on 4/24/20.
