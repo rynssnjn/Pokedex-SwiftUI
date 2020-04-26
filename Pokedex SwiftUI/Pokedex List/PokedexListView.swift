@@ -17,16 +17,40 @@ struct PokedexListView: View {
     }
 
     // MARK: Stored Properties
+    @State private var searchText: String = ""
+    @State private var isSearching: Bool = false
     private let pokemons: [PokemonData]
 
     // MARK: Configured View
     var body: some View {
         NavigationView {
-            List(self.pokemons) { pokemon in
-                NavigationLink(destination: PokemonDetailsView(pokemon: pokemon)) {
-                    PokemonCell(viewModel: PokemonDataViewModel(pokemonData: pokemon))
+            List {
+                if self.isSearching {
+                    SearchBar(text: $searchText)
+                }
+                ForEach(self.pokemons.filter {
+                    self.searchText.isEmpty
+                        ? true
+                        : $0.name.localizedCaseInsensitiveContains(self.searchText)
+                    },
+                    id: \.id
+                ) { pokemon in
+                    NavigationLink(destination: PokemonDetailsView(pokemon: pokemon)) {
+                        PokemonCell(viewModel: PokemonDataViewModel(pokemonData: pokemon))
+                    }
                 }
             }
+            .navigationBarItems(trailing:
+                Button(action: {
+                    self.isSearching = !self.isSearching
+                }) {
+                    Image(self.isSearching ? "cancel" : "search")
+                        .renderingMode(Image.TemplateRenderingMode.original)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 25.0, height: 25.0)
+                }
+            )
             .navigationBarTitle(Text("Pokemons"))
         }
     }
