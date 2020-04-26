@@ -43,6 +43,12 @@ struct PokedexListView: View {
             .navigationBarItems(trailing:
                 Button(action: {
                     self.isSearching = !self.isSearching
+                    switch self.isSearching {
+                        case true:
+                            break
+                        case false:
+                            self.searchText = ""
+                    }
                 }) {
                     Image(self.isSearching ? "cancel" : "search")
                         .renderingMode(Image.TemplateRenderingMode.original)
