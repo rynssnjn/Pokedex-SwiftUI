@@ -36,10 +36,14 @@ struct SegmentedChildView: View {
                 ProfileHeader(viewModel: ProfileViewModel(model: self.viewModel))
                 ProfileDetails(viewModel: ProfileViewModel(model: self.viewModel))
             } else {
-                Text(self.viewModel.species.evolutionURL.absoluteString)
+                StatisticsView(stats: self.viewModel.pokemon.stats)
+                EvolutionView(viewModel: ProfileViewModel(model: self.viewModel))
             }
         }
-        .background(Color(PokemonType(rawValue: self.viewModel.pokemon.types.primaryType)!.color))
+        .background(self.selectedIndex == 0
+            ? Color(PokemonType(rawValue: self.viewModel.pokemon.types.primaryType)!.color)
+            : Color.white
+        )
     }
 
     // MARK: Instance Methods

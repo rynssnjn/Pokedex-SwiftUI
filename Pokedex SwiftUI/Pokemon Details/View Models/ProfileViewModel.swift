@@ -72,4 +72,9 @@ public struct ProfileViewModel {
     public var description: String {
         self.model.species.text.replacingOccurrences(of: "\n", with: "")
     }
+
+    public var evolutions: [EvolutionNode] {
+        return self.model.evolution.nodes
+    }
+
 }
