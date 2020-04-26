@@ -1,3 +1,10 @@
 # Pokedex-SwiftUI
 
-Same application with https://github.com/rynssnjn/Pokedex but implemented using SwiftUI.
+Sample application using SwiftUI.
+
+This is the same with the [Pokedex App](https://github.com/rynssnjn/Pokedex) I previously did, but the difference is that this implemented using SwiftUI and not implemented into Coordinator Pattern.
+
+Requests data from [PokeApi](https://pokeapi.co)
+
+Splits code into different Views, View Models, Models, UIViewRepresantables.
+
