@@ -16,6 +16,11 @@ public final class SearchBarCoordinator: NSObject, UISearchBarDelegate {
     }
 
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchBar.becomeFirstResponder()
         self.text = searchText
+    }
+
+    public func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }

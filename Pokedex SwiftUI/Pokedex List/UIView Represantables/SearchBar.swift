@@ -22,6 +22,9 @@ public struct SearchBar: UIViewRepresentable {
     }
 
     public func updateUIView(_ uiView: UISearchBar, context: UIViewRepresentableContext<SearchBar>) {
-        uiView.text = self.text
+        DispatchQueue.main.async {
+            uiView.becomeFirstResponder()
+            uiView.text = self.text
+        }
     }
 }
