@@ -26,6 +26,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = UIHostingController(rootView: contentView)
+            if #available(iOS 13.0, *) {
+                window.overrideUserInterfaceStyle = UIUserInterfaceStyle.light
+            }
+
             self.window = window
             window.makeKeyAndVisible()
         }
